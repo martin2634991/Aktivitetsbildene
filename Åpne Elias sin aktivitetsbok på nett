@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Elias sin Aktivitetsbok</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background-color: #fff8e1; margin: 0; padding: 20px; }
+        h1 { color: #e65100; }
+        .activity { margin: 30px 0; padding: 20px; background: #ffe0b2; border-radius: 12px; }
+        button { padding: 10px 20px; font-size: 16px; background-color: #ffb74d; border: none; border-radius: 8px; cursor: pointer; }
+        button:hover { background-color: #ffa726; }
+        .question { font-size: 18px; margin-bottom: 10px; }
+        .option { display: block; margin: 8px; }
+        .result { margin-top: 10px; font-weight: bold; }
+    </style>
+    <script>
+        function checkAnswer(questionId, correctAnswer) {
+            const selected = document.querySelector('input[name="' + questionId + '"]:checked');
+            const result = document.getElementById("result-" + questionId);
+            if (!selected) {
+                result.innerText = "Velg et svar!";
+                result.style.color = "orange";
+                return;
+            }
+            if (selected.value === correctAnswer) {
+                result.innerText = "Riktig!";
+                result.style.color = "green";
+            } else {
+                result.innerText = "Prøv igjen!";
+                result.style.color = "red";
+            }
+        }
+    </script>
+</head>
+<body>
+
+<h1>🦁 Elias sin Aktivitetsbok</h1>
+<p>Velkommen til en morsom verden med Løvegarden og dinosaurer!</p>
+
+<div class="activity">
+    <div class="question">1. Hvem av disse er en dinosaur?</div>
+    <label class="option"><input type="radio" name="q1" value="Løve"> Løve</label>
+    <label class="option"><input type="radio" name="q1" value="T-Rex"> T-Rex</label>
+    <label class="option"><input type="radio" name="q1" value="Kion"> Kion</label>
+    <button onclick="checkAnswer('q1', 'T-Rex')">Sjekk svar</button>
+    <div class="result" id="result-q1"></div>
+</div>
+
+<div class="activity">
+    <div class="question">2. Hvilken farge har solen?</div>
+    <label class="option"><input type="radio" name="q2" value="Blå"> Blå</label>
+    <label class="option"><input type="radio" name="q2" value="Gul"> Gul</label>
+    <label class="option"><input type="radio" name="q2" value="Grønn"> Grønn</label>
+    <button onclick="checkAnswer('q2', 'Gul')">Sjekk svar</button>
+    <div class="result" id="result-q2"></div>
+</div>
+
+<div class="activity">
+    <div class="question">3. Hva sier dinosauren?</div>
+    <button onclick="alert('ROOOAAAR! 🦖')">Trykk her</button>
+</div>
+
+<p>Flere oppgaver kommer snart! 🦖🦁</p>
+
+</body>
+</html>
